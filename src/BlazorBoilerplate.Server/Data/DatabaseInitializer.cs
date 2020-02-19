@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -28,10 +27,13 @@ namespace BlazorBoilerplate.Server.Data
         private readonly RoleManager<IdentityRole<Guid>> _roleManager;
         private readonly ILogger _logger;
 
-        public DatabaseInitializer(ApplicationDbContext context,
+        public DatabaseInitializer(
+            ApplicationDbContext context,
             PersistedGrantDbContext persistedGrantContext,
-            ConfigurationDbContext configurationContext, ILogger<DatabaseInitializer> logger,
-             UserManager<ApplicationUser> userManager, RoleManager<IdentityRole<Guid>> roleManager)
+            ConfigurationDbContext configurationContext, 
+            ILogger<DatabaseInitializer> logger,
+            UserManager<ApplicationUser> userManager, 
+            RoleManager<IdentityRole<Guid>> roleManager)
         {
             _persistedGrantContext = persistedGrantContext;
             _configurationContext = configurationContext;
@@ -41,7 +43,7 @@ namespace BlazorBoilerplate.Server.Data
             _logger = logger;
         }
 
-        virtual public async Task SeedAsync()
+        public virtual async Task SeedAsync()
         {
             //Apply EF Core migration scripts
             await MigrateAsync();

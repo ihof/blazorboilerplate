@@ -1,18 +1,19 @@
-# <img src="https://github.com/enkodellc/blazorboilerplate/blob/master/src/BlazorBoilerplate.Client/wwwroot/images/Blazor-Boilerplate-Title.png" alt="Blazor Boilerplate" style="max-wdith:100%"/>
+# <img src="https://github.com/enkodellc/blazorboilerplate/blob/master/src/BlazorBoilerplate.CommonUI/wwwroot/images/Blazor-Boilerplate-Title.png" alt="Blazor Boilerplate" style="max-wdith:100%"/>
 
-Blazor is a web framework designed to run in the browser on a WebAssembly-based .NET runtime. Blazor Boilerplate aka Blazor Starter Template is a SPA admin template (WebAssembly / Core-Hosted) built with Blazor with a .NET Core 3.1 Server API. The UI for this application is by Material Design provided mostly by MatBlazor.
-Version 0.2.3 and below utilize AspNETCore Authorization / Authentication. Version 0.3.0 and up will be using Identity Server 4.  
+Blazor is a web framework designed to run in the browser on a WebAssembly-based .NET runtime. Blazor Boilerplate aka Blazor Starter Template is a SPA admin template that is able to BOTH (WebAssembly / Core-Hosted) and Server-Side Blazor with a .NET Core 3.1 Server. The UI for this application is by Material Design provided mostly by MatBlazor.
+Version 0.2.3 and below utilize AspNETCore Authorization / Authentication. Version 0.3.0 and up will be using Identity Server 4. Version 0.6.0 and up are capable of both CSB and SSB!    
 
 [![Build Status](https://enkodellc.visualstudio.com/blazorboilerplate/_apis/build/status/enkodellc.blazorboilerplate?branchName=master)](https://enkodellc.visualstudio.com/blazorboilerplate/_build/latest?definitionId=1&branchName=master)
 [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://blazorboilerplate.com)
 [![GitHub Stars](https://img.shields.io/github/stars/enkodellc/blazorboilerplate.svg)](https://github.com/enkodellc/blazorboilerplate/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/enkodellc/blazorboilerplate.svg)](https://github.com/enkodellc/blazorboilerplate/issues)
 [![MIT](https://img.shields.io/github/license/SamProf/MatBlazor.svg)](LICENSE)
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.me/enkodellc)
 [![Gitter](https://badges.gitter.im/BlazorBoilerplate/community.svg)](https://gitter.im/blazorboilerplate/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Goals
 - To create a boilerplate with Blazor / Razor components that includes the most common functionality for an app that is lean yet powerful for anyone to start a real world application quickly.
-- Avoid many external compnents & libraries which make it difficult to maintain, update, track down code, learn code and issues.
+- Avoid many external components & libraries which make it difficult to maintain, update, track down code, learn code and issues.
 - This repository is community driven. It is not and never will be controlled by a corporation.
 - Minimal Javascript. Currently only using them for SignalR for the Forum and MatBlazor / Material Desing. We may use components with JS in them but so far no Javascript has been written specifically for anything in the repository.
 
@@ -26,22 +27,21 @@ Complete all Blazor dependencies.
 
 - [.Net Core SDK 3.1.0-preview4.19579.2](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 - Install the Latest Visual Studio 2019 Preview with the ASP.NET and web development workload selected.
-- Entity Framework Core on the command-line tools: **dotnet tool install --global dotnet-ef --version 3.1.0-preview4.19579.2**
+- Entity Framework Core on the command-line tools: **dotnet tool install --global dotnet-ef --version 3.1.1-preview4.19579.2**
 
 ### How to run
-1. Install the latest .NET Core SDK **https://dotnet.microsoft.com/download/dotnet-core/3.1** and the latest **Visual Studio 2019 Preview**.
+1. Install the latest .NET Core SDK **https://dotnet.microsoft.com/download/dotnet-core/3.1** and the latest **Visual Studio 2019 (v16.4)**.
 2. Clone or download.
 3. Open the solution in Visual Studio and press F5.
 4. To view the API using Swagger UI, Run the solution and go to: [http://localhost:53414/swagger/index.html](http://localhost:53414/swagger/index.html). Live example:
 [https://blazorboilerplate.com/swagger/index.html](https://blazorboilerplate.com/swagger/index.html)
 
 ## Publish on IIS - What works for me on my Windows Server 2016 & SQL Server 2014 (Enkodellc)
-1. Publish both the Client and Server projects to local folder
-2. Upload / Copy published Server directory to website folder.
-3. Upload / Copy published Client directory ON TOP of to the same root website directory of Server, it will add some files and overwrite some.
-4. Install your SSL, use self-signed if you don't have one. Make sure your SSL is in the WebHosting Certificate Store.
-5. Configure your appsettings.production.config - Connection String, Thumbprint / SSL. 
-6. Login with either the user **[user | user123]** or admin **[admin | admin123]** default accounts.
+1. Publish BlazorBoilerplate.Server project to your IIS website folder using CSB or SSB.
+2. Install your SSL, use self-signed if you don't have one. Make sure your SSL is in the **WebHosting** Certificate Store.
+4. Configure your IIS Website Bindings to have https binding with the SSL certificate set and Port 443 for default.
+3. Configure / create appsettings.production.config. Set  Connection String, Thumbprint / SSL. Thumbprint example:  **143fbd7bc36e78b1bcf9a53c13336eaebe33353a**
+4. Login with either the user **[user | user123]** or admin **[admin | admin123]** default accounts.
 
 ### Thanks To
 - [Blazor](https://blazor.net)
@@ -64,12 +64,12 @@ opportunity to learn, share, grow and get feedback on what hopefully will be a g
   
 I have taken small solutions from other repositories and will do my best to recognize those contributions. I am very open to ideas and 
  suggestions. I am not a great developer, but I try. So please take this into consideration when using this repository. If you wish to hire me for 
- consulting or as a contractor please reach out via [email](support@blazorboilerplate.com) or [https://gitter.im/enkodellc](https://gitter.im/enkodellc).
+ consulting or as a contractor please reach out via [email](support@blazorboilerplate.com) or [https://gitter.im/enkodellc](https://gitter.im/enkodellc). I have taken well  over 1,000 hours  to create, maintain, and answer questions. Please [donate](https://www.paypal.me/enkodellc) to support my efforts.
 
 ## Completed 
  - Basic Login / User Creation
  - Admin Theme using Material Design / MatBlazor
- - Swagger UI API visualizer 
+ - Swagger UI API visualizer - [View the live API](https://blazorboilerplate.com/swagger/index.html)
  - Log Files using Serilog
  - Choose between SQL Lite File or MS SQL Database
  - Email Confirmation of Registered Users
@@ -83,26 +83,36 @@ I have taken small solutions from other repositories and will do my best to reco
  - Forum chat and notification system - Thanks <a href="https://github.com/ajgoldenwings" target="_blank">ajgoldenwings</a>
  - Drag and Drop Examples - <a href="https://chrissainty.com/investigating-drag-and-drop-with-blazor/" target="_blank">Chris Sainty Blazor Blog</a>
  - Docker Container Support
+ - Dual Mode (CSB / SSB) - Client Side / Webassembly & Sever Side. Thanks [MarkStega](https://github.com/MarkStega)
 
 ## Road map
-- User profile & settings management
-- User, claims, role, permission and organization unit management
+- Caching speed review
+- Security Audit
+- Add Tests
 - Azure Hosting Guide
 - Create a Nuget Package Template
-- Switch from Entity Framework Core to Dapper. So far EF is not my cup of Tea. I think dapper will be stronger and faster just my opinion. I like SQL code, less automagic code with more control. Just my style.
+- Possibly switch from Entity Framework Core to Dapper. So far EF is not my cup of Tea. I think dapper will be stronger and faster just my opinion. I like SQL code, less automagic code with more control. Just my style.
 
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE).
 
 ### Problem Solving Tips
+- If you are having issues wih authentication or any other strange behavior try using Incognito mode / different browser. 
 - Make sure you have all pre-requisites installed.
 - Keep It Simple Stupid: If you are running into issues with SQL / connection string. First CHECK both appsettings.json (appsettings.production.json for production) and (appsettings.development.json for development). 
 - Test out with SQLlite / file db. Then test out with a known good connection string.
 - Go back to the Origin: BlazorBoilerplate was built off of [BlazorWithIdentity](https://github.com/stavroskasidis/BlazorWithIdentity) so first step is to run this and try and publish. The reasoning is that this is a very lean project to reduce the amount of code and resources requiring debugging.
 - If still failing get on [Gitter BlazorBoilerplate](https://gitter.im/blazorboilerplate/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
  for Blazor Boilerplate or  [Gitter aspnet/Blazor](https://gitter.im/aspnet/Blazor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge).
-- Debugging is very limited on WebAssembly / Client-side Blazor, which this project is. The server side of the project can easily be debugged, just not there yet on the client-side code.
- Take a look at the "Dual" branch for SSB / CSB options. It may be a bit outdated.
+- Debugging is very limited on WebAssembly / Client-side Blazor. Use Debug_SSB for debugging the UI. Just be aware of browser caching issues when switching modes.
+ The server side of the project can easily be debugged, just not there yet on the client-side code.
+- If you are getting compiler errors try and close VS delete your .vs directory in the solution folder. If that doesn't work delete the solution and redownload the repo.
+ 
+### Postgres Support
+Delete Existing Migrations in the BlazorBoilerplate.Server/Migrations Folder and then create your own migrations:  
+  -`dotnet ef migrations add InitialApplicationDbMigration --context ApplicationDbContext -o Migrations\ApplicationDb`  
+  -`dotnet ef migrations add InitialConfigurationDbMigration --context DbContextOptionsBuilder -o Migrations\ConfigurationDb`  
+  -`dotnet ef migrations add PersistedGrantDbContext --context PersistedGrantDbContext -o Migrations\PersistedGrantDb`  
 
 ### Docker Support
 - Prerequisite: Install [Docker Desktop](https://go.microsoft.com/fwlink/?linkid=847268) 
@@ -113,10 +123,22 @@ This project is licensed under the terms of the [MIT license](LICENSE).
 -  Looking for additional help with Azure documentation and steps.
 
 ## News
-### 0.6.0 (Breaking Changes - Under Development - DualModeV2 Branch)
-- Dual Mode CSB & SSB [View Wiki](https://github.com/enkodellc/blazorboilerplate/wiki/Dual-Mode-CSB---SSB-Tips). Thanks [MarkStega](https://github.com/MarkStega
 
-### 0.5.0 (Under Development)
+### 0.7.0 (Under Development - !Breaking Changes)
+- .NET Core 3.2 Preview 1- Microsoft & Other Nuget package updates - Program.cs refactored for CSB
+- MatBlazor 2.1.2
+- Server-Side Blazor Auth Cookie Issue [#138](https://github.com/enkodellc/blazorboilerplate/issues/138) -  Thanks [marcotana](https://github.com/marcotana)
+- Exit from Login dialog [#139](https://github.com/enkodellc/blazorboilerplate/issues/139) -  Thanks [Oleg26Dev](https://github.com/Oleg26Dev)
+
+### 0.6.1 (No Major Breaking Changes)
+- .NET Core 3.1.1 - Microsoft Nuget package updates - security patches no code changes 
+
+### 0.6.0 (Major Breaking Changes)
+- Dual Mode CSB & SSB [View Wiki](https://github.com/enkodellc/blazorboilerplate/wiki/Dual-Mode-CSB---SSB-Tips). Thanks [MarkStega](https://github.com/MarkStega)
+    - There are changes to solution structure for Dual Mode. Switching modes can be tricky with the browser cache so if you see something strange use incognito mode or a different browser. 
+    Best solution is to pick your version and stick with it, then expect to clear cache when switching. Read the Wiki!
+
+### 0.5.0
 - MatBlazor 2.0 Breaking Changes
 - .NET Core 3.1.0 / v3.1.0-preview4 Blazor Nuget package updates
 - Admin Roles / Permissions Management. Thanks [vd3d](https://github.com/vd3d)
